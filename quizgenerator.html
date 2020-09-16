@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<title> Quiz Generator </title>
+				<script>
+		let game = { 
+			questions:[
+				{
+					qText: "Is Fortnite gud?",
+					aList: ['Yes' , 'Sure', 'Maybe', 'NO'] ,
+					aCorrect: 'NO'
+				},
+				{
+					qText: "Is Minecraft better than Fortnte ?",
+					aList: ['Yes' , 'Sure', 'Maybe', 'NO'] ,
+					aCorrect: 'Yes'
+				},
+				{
+					qText: "Is 2K better than minecraft ?",
+					aList: ['Yes' , 'Sure', 'Maybe', 'NO'] ,
+					aCorrect: 'Yes'
+				}
+			], createQuestion: function() {
+					document.getElementById("answerBox").innerHTML = "";
+					let RNGesus = Math.floor(Math.random() * 3) ; 
+					document.getElementById("questionBox") .innerHTML = game.questions[RNGesus].qText;
+					for (let i =0; i < game.questions[RNGesus].aList.length; i++ ) { 
+						document.getElementById("answerBox").innerHTML+=
+						`<input type = "radio" id="answer${i}" name= "selection" value="${game.questions[RNGesus].aList[i]}">
+						<label for="$(game.questions[RNGesus].aList[i]}">${game.questions[RNGesus].aList[i]}</label>`
+					}
+			}, 
+			checkAnswer: function () {
+				
+			} 
+		}
+		</script>
+	</head>
+	<body onload="">
+		<div id="questionBox">
+		</div>
+		<div id="answerBox">
+		</div>
+		<div id="responseBox">
+		</div>
+		<button id = "submit" onclck="">Submit Answer</button>
+	</body>
+<html>
